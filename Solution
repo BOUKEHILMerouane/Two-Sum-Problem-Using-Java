@@ -1,0 +1,19 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int i = 0,j=1, diff;
+        int[] indeces = new int[2];
+        HashMap<Integer, Integer> helper = new HashMap<>();
+        for (i = 0; i < nums.length; i++) {
+             helper.put(nums[i], i);
+        }
+        for (i = 0; i < nums.length; i++) {
+             diff = target - nums[i];
+             if (helper.containsKey(diff) && helper.get(diff) != i){
+                 indeces[0] = i;
+                 indeces[1] = helper.get(diff);
+                 return indeces;
+             }
+        }
+        return indeces;
+    }
+}
